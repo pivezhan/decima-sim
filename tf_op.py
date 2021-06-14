@@ -31,7 +31,7 @@ def expand_act_on_state(state, sub_acts):
 
 def glorot(shape, dtype=tf.float32, scope='default'):
     # Xavier Glorot & Yoshua Bengio (AISTATS 2010) initialization (Eqn 16)
-    with tf.variable_scope(scope):
+    with tf.compat.v1.variable_scope(scope):
         init_range = np.sqrt(6.0 / (shape[0] + shape[1]))
         init = tf.random_uniform(
             shape, minval=-init_range, maxval=init_range, dtype=dtype)

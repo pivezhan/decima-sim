@@ -91,7 +91,7 @@ class ActorAgent(Agent):
         self.entropy_weight = tf.placeholder(tf.float32, ())
 
         # select node action probability
-        self.selected_node_prob = tf.reduce_sum(tf.multiply(
+        self.selected_node_prob = tf.keepdims(tf.multiply(
             self.node_act_probs, self.node_act_vec),
             reduction_indices=1, keep_dims=True)
 
@@ -156,7 +156,7 @@ class ActorAgent(Agent):
             apply_gradients(zip(self.act_gradients, self.params))
 
         # network paramter saver
-        self.saver = tf.train.Saver(max_to_keep=args.num_saved_models)
+        self.saver = tf.compat.v1.train.Saver(max_to_keep=args.num_saved_models)
         self.sess.run(tf.global_variables_initializer())
 
         if args.saved_model is not None:

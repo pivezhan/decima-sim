@@ -26,7 +26,7 @@ class GraphCNN(object):
         self.scope = scope
 
         # message passing
-        self.adj_mats = [tf.sparse_placeholder(
+        self.adj_mats = [tf.compat.v1.sparse_placeholder(
             tf.float32, [None, None]) for _ in range(self.max_depth)]
         self.masks = [tf.placeholder(
             tf.float32, [None, 1]) for _ in range(self.max_depth)]

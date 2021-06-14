@@ -127,8 +127,8 @@ parser.add_argument('--reset_prob_min', type=float, default=0,
                     help='Minimum of decay probability (default: 0)')
 parser.add_argument('--num_agents', type=int, default=16,
                     help='Number of parallel agents (default: 16)')
-parser.add_argument('--num_ep', type=int, default=10000000,
-                    help='Number of training epochs (default: 10000000)')
+parser.add_argument('--num_ep', type=int, default=1000,
+                    help='Number of training epochs (default: 1000)')
 parser.add_argument('--learn_obj', type=str, default='mean',
                     help='Learning objective (default: mean)')
 parser.add_argument('--saved_model', type=str, default=None,

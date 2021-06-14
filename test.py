@@ -17,7 +17,7 @@ if not os.path.exists(args.result_folder):
     os.makedirs(args.result_folder)
 
 # tensorflo seeding
-tf.set_random_seed(args.seed)
+tf.compat.v1.set_random_seed(args.seed)
 
 # set up environment
 env = Environment()
@@ -27,7 +27,7 @@ agents = {}
 
 for scheme in args.test_schemes:
     if scheme == 'learn':
-        sess = tf.Session()
+        sess = tf.compat.v1.sparse_placeholder()
         agents[scheme] = ActorAgent(
             sess, args.node_input_dim, args.job_input_dim,
             args.hid_dims, args.output_dim, args.max_depth,
